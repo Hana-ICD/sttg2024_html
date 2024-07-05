@@ -1431,10 +1431,13 @@ a {
     justify-content: center;
   }
 }
-.l-header {
+.l-header .nav-head {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  position: relative;
   background: #ffffff;
   z-index: 10;
   transition: all 0.3s linear;
@@ -1456,23 +1459,20 @@ a {
     display: none;
   }
 }
-.l-header.is-sticky {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
+.l-header.is-sticky .nav-head {
   animation: headerSticky 1.5s;
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.1);
 }
 @media screen and (min-width: 992px) {
-  .l-header {
+  .l-header .nav-head {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-  .l-header.is-sticky {
+  .l-header .nav-head.is-sticky {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
@@ -1689,14 +1689,16 @@ a {
   position: fixed;
   top: 0;
   right: 0;
-  width: 75%;
   height: 100vh;
   background-color: #1d1d1d;
   z-index: 15;
   color: #ffffff;
-  padding: 50px 20px;
-  transform: translate3d(75vw, 0, 0);
+  transform: translate3d(100%, 0, 0);
   transition: transform 0.7s;
+  padding: 50px 20px;
+  width: 75%;
+  opacity: 0;
+  visibility: hidden;
 }
 @media screen and (min-width: 992px) {
   .menu-sp-wrapper {
@@ -1705,19 +1707,21 @@ a {
 }
 @media screen and (min-width: 577px) {
   .menu-sp-wrapper {
-    transform: translate3d(80vw, 0, 0);
+    transform: translate3d(80%, 0, 0);
     width: 80%;
     padding: 100px 50px;
   }
 }
 @media screen and (min-width: 768px) {
   .menu-sp-wrapper {
-    transform: translate3d(60vw, 0, 0);
+    transform: translate3d(60%, 0, 0);
     width: 60%;
   }
 }
 .menu-sp-wrapper.is-open {
   transform: translate3d(0, 0, 0);
+  opacity: 1;
+  visibility: visible;
 }
 .menu-sp-wrapper * {
   color: inherit;
@@ -1748,16 +1752,16 @@ body .main-content, body .l-header .nav-head {
   transition: transform 0.7s;
 }
 body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
-  transform: translate3d(-75vw, 0, 0);
+  transform: translate3d(-75%, 0, 0);
 }
 @media screen and (min-width: 577px) {
   body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
-    transform: translate3d(-80vw, 0, 0);
+    transform: translate3d(-80%, 0, 0);
   }
 }
 @media screen and (min-width: 768px) {
   body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
-    transform: translate3d(-60vw, 0, 0);
+    transform: translate3d(-60%, 0, 0);
   }
 }
 
