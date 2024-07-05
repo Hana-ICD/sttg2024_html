@@ -1,0 +1,118 @@
+[data-ani^=fade] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+[data-ani=blur-text] {
+  opacity: 0;
+  filter: blur(100px);
+  transform: translateY(40px);
+  transition: opacity 1s, transform 0.8s, filter 0.5s;
+}
+
+.is-appear [data-ani^=fade] {
+  opacity: 1;
+}
+.is-appear [data-ani=fade-up], .is-appear [data-ani=fade-down], .is-appear [data-ani=fade-left], .is-appear [data-ani=fade-right] {
+  transform: translateZ(0);
+}
+.is-appear [data-ani=blur-text] {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+.is-appear .js-ran {
+  transform: translateY(var(--data-rang-num));
+}
+
+[data-ani=fade] {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-ani=fade-up] {
+  transform: translate3d(0, 50px, 0);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-ani=fade-down] {
+  transform: translate3d(0, -50px, 0);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-ani=fade-right] {
+  transform: translate3d(0, 50px, 0);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-ani=fade-left] {
+  transform: translate3d(50px, 0, 0);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-ani-delay="100"] {
+  transition-delay: 0.1s;
+}
+
+[data-ani-delay="200"] {
+  transition-delay: 0.2s;
+}
+
+[data-ani-delay="250"] {
+  transition-delay: 0.25s;
+}
+
+[data-ani-delay="300"] {
+  transition-delay: 0.3s;
+}
+
+[data-ani-delay="400"] {
+  transition-delay: 0.4s;
+}
+
+[data-ani-delay="500"] {
+  transition-delay: 0.5s;
+}
+
+[data-ani-delay="600"] {
+  transition-delay: 0.6s;
+}
+
+[data-ani-delay="700"] {
+  transition-delay: 0.7s;
+}
+
+[data-ani-delay="800"] {
+  transition-delay: 0.8s;
+}
+
+[data-ani-delay="900"] {
+  transition-delay: 0.9s;
+}
+
+[data-ani-delay="1000"] {
+  transition-delay: 1s;
+}
+
+[data-ani-delay=var] {
+  transition-delay: var(--data-ani-delay);
+}
+
+[data-ani-duration="500"] {
+  transition-duration: 0.5s;
+}
+
+[data-ani-duration="1000"] {
+  transition-duration: 1s;
+}
+
+[data-ani-duration="1500"] {
+  transition-duration: 1.5s;
+}
+
+[data-ani-duration="2000"] {
+  transition-duration: 2s;
+}
+
+[data-transition-bezier] {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
