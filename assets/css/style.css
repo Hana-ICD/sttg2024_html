@@ -1697,8 +1697,6 @@ a {
   transition: transform 0.7s;
   padding: 50px 20px;
   width: 75%;
-  opacity: 0;
-  visibility: hidden;
 }
 @media screen and (min-width: 992px) {
   .menu-sp-wrapper {
@@ -1707,21 +1705,17 @@ a {
 }
 @media screen and (min-width: 577px) {
   .menu-sp-wrapper {
-    transform: translate3d(80%, 0, 0);
     width: 80%;
     padding: 100px 50px;
   }
 }
 @media screen and (min-width: 768px) {
   .menu-sp-wrapper {
-    transform: translate3d(60%, 0, 0);
     width: 60%;
   }
 }
 .menu-sp-wrapper.is-open {
   transform: translate3d(0, 0, 0);
-  opacity: 1;
-  visibility: visible;
 }
 .menu-sp-wrapper * {
   color: inherit;
@@ -2692,16 +2686,16 @@ h2, h3, h4, h5 {
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-[data-ani=fade-right] {
-  transform: translate3d(0, 50px, 0);
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+@media screen and (min-width: 992px) {
+  [data-ani=fade-right] {
+    transform: translate3d(0, 50px, 0);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  [data-ani=fade-left] {
+    transform: translate3d(50px, 0, 0);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
 }
-
-[data-ani=fade-left] {
-  transform: translate3d(50px, 0, 0);
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
 [data-ani-delay="100"] {
   transition-delay: 0.1s;
 }
