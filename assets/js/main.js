@@ -130,11 +130,12 @@ $(document).on("click", ".scroll-link", function(){
 })
 
 function funMenuToggle() {
-  $(".menu-sp-wrapper").html($(".menu").html());
+  $(".menu-sp-wrapper").html("<div class='menu-item-frame'>" + $(".menu").html() + "</div>");
+  // $(".menu-sp-wrapper").html($(".menu").html());
   let jsToggle = $(".toggle")
   window.addEventListener('click', function(e){  
-    if (document.querySelector('.toggle') == e.target) {
-      console.log("toggle");
+    if (document.querySelector('.toggle') === e.target) {
+      console.log(e.target, "toggle");
       jsToggle.toggleClass("is-open");
       $("body").toggleClass("overflow-hidden is-open-menu");
       $(".menu-sp-wrapper").toggleClass("is-open");
