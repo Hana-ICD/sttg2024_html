@@ -39,16 +39,16 @@
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-[data-ani=fade-right] {
-  transform: translate3d(0, 50px, 0);
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+@media screen and (min-width: 992px) {
+  [data-ani=fade-right] {
+    transform: translate3d(0, 50px, 0);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  [data-ani=fade-left] {
+    transform: translate3d(50px, 0, 0);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
 }
-
-[data-ani=fade-left] {
-  transform: translate3d(50px, 0, 0);
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
 [data-ani-delay="100"] {
   transition-delay: 0.1s;
 }
