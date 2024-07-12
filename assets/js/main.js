@@ -131,11 +131,9 @@ $(document).on("click", ".scroll-link", function(){
 
 function funMenuToggle() {
   $(".menu-sp-wrapper").html("<div class='menu-item-frame'>" + $(".menu").html() + "</div>");
-  // $(".menu-sp-wrapper").html($(".menu").html());
   let jsToggle = $(".toggle")
   window.addEventListener('click', function(e){  
     if (document.querySelector('.toggle') === e.target) {
-      console.log(e.target, "toggle");
       jsToggle.toggleClass("is-open");
       $("body").toggleClass("overflow-hidden is-open-menu");
       $(".menu-sp-wrapper").toggleClass("is-open");
@@ -160,3 +158,129 @@ if($(window).width() > 1199) {
 $( window ).on( "resize", function() {
   heightBanner();  
 });
+
+// text transform
+$(".text-dynamic").each(function(){
+  let _this=$(this), count = 0, i=0;
+  let wordsArray = _this.attr("data-content-dynamic").split(', ');
+  let tam="";
+  setInterval(function () { 
+    _this.removeClass("show");
+    count++;
+    tam=""; i=0.1;
+
+    let ar = wordsArray[count % wordsArray.length].split("");
+    ar.forEach(element => {
+      i=i+0.04;  
+      tam += "<span style='transition-delay:"+ i +"s;'>" + element + "</span>";
+    });
+    _this.html(tam);
+    
+    setTimeout(function() { 
+      _this.addClass("show");
+    }, 10);
+  }, 5000);
+})
+
+
+$(".text-dynamic-block").each(function(){
+  let _this = $(this), count = 0, i=0;
+  let wordsArray = _this.attr("data-content-dynamic").split(', ');
+  let tam="";
+  setInterval(function () { 
+    _this.removeClass("show");
+    _this.removeClass("out");
+    count++;
+    tam=""; i=0.1;
+    let ar = wordsArray[count % wordsArray.length].split("");
+    ar.forEach(element => {
+      i=i+0.05;  
+      tam += "<span style='transition-delay:"+ i +"s;'>" + element + "</span>";
+    });
+    
+    _this.html(tam);
+    
+    setTimeout(function() { 
+      _this.addClass("show");
+    }, 20);
+
+    setTimeout(function() { 
+      _this.addClass("out"); 
+    }, 4500)
+  }, 5000);
+})
+
+// tabs
+var checkParamUrl = true;
+function funTabContent() {
+  $(document).on("click",'[data="tab-nav"]', function(){
+    checkParamUrl = false;
+    let _this = $(this);  
+    let attrTab = _this.attr("data-tab");
+    let tabContent = _this.parents(".group-tabs").find(".tab-content");
+    const listNav = tabContent.find($("."+attrTab));
+    let j=0, h=0;
+  
+    _this.parent().find('[data="tab-nav"]').removeClass("active");
+    _this.addClass("active");
+  
+    if(attrTab != "all") {   
+      $('[data="tab-content-item"]').css({"position": "relative", "opacity":"0"});
+  
+      tabContent.css("height", (Math.ceil(listNav.length / 3) * 420) + "px");
+      tabContent.css({"margin-left":"-15px", "margin-right":"-15px"});
+  
+      for (let index = 0; index < listNav.length; index++) {     
+        if(index == 3) {
+          j = 0;
+        } 
+        if(index != 0 && index % 3 == 0) {
+          h++;
+        } 
+        listNav[index].style = "position: absolute; top: "+h * 400 + "px" + "; left: "+j * 33.33+"%;";
+        j++;
+      }
+    }
+    else {
+      $('[data="tab-content-item"]').css({"position":"relative", "top":"0", "left":"0", "opacity":"1"});
+      tabContent.css({"height":"auto", "margin-left":"0", "margin-right":"0"});
+    }  
+  })
+}
+funTabContent();
+
+function funGetParamUrl() {
+  const urlCurrent = window.location.href;
+  const urlHref = urlCurrent.split("#");
+  const urlHrefValue = urlHref[urlHref.length - 1]
+
+  if(urlHref.length > 1) {
+
+    $("html, body").animate({ scrollTop: document.getElementsByName('group-tabs')[0].offsetTop - ($("header .nav-head").outerHeight() + $(".group-tabs .tab-nav").outerHeight()) }, 800);
+
+    if(checkParamUrl && urlHrefValue != "all") {
+      $('[data="tab-nav"]').removeClass("active");
+      $('[data-tab="'+urlHrefValue+'"]').addClass("active");
+
+      $('[data="tab-content-item"]').css({"position": "relative", "opacity":"0"});
+      let tabContent = $(".tab-content");
+      const listNav = tabContent.find($("."+urlHrefValue));
+      let j=0, h=0;
+
+      tabContent.css("height", (Math.ceil(listNav.length / 3) * 420) + "px");
+      tabContent.css({"margin-left":"-15px", "margin-right":"-15px"});
+  
+      for (let index = 0; index < listNav.length; index++) {     
+        if(index == 3) {
+          j = 0;
+        } 
+        if(index != 0 && index % 3 == 0) {
+          h++;
+        } 
+        listNav[index].style = "position: absolute; top: "+h * 400 + "px" + "; left: "+j * 33.33+"%;";
+        j++;
+      }
+    }
+  }
+}
+funGetParamUrl();
