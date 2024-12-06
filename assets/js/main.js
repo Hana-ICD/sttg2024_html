@@ -63,28 +63,25 @@ $('.topSwiper').mouseleave(function(){
 function jsCollapse() {
   $(".js-collappse").each(function(){
     $(this).find(".collapse-item").each(function(){
-      let clTitle = $(this).find(".collapse-title").outerHeight();
-      let clContent = $(this).find(".collapse-content").outerHeight();
-
       if($(this).hasClass("open")) {
-        $(this).css("height", clTitle + clContent + "px");
+        $(this).find(".collapse-content").slideDown();
       }
       else {
-        $(this).css("height", clTitle + 15 + "px");
+        $(this).find(".collapse-content").slideUp();
       }
       
       $(this).on("click", function(){
         if($(this).hasClass("open")) {
           $(this).removeClass("open")
-          $(this).css("height", clTitle + 15 + "px");
+          $(this).find(".collapse-content").slideUp();
         }
         else {
           $(".collapse-item").removeClass("open");
+          $(".js-collappse .collapse-content").slideUp();
           $(".collapse-item").css("height", function(){
-            return $(this).find(".collapse-title").outerHeight() + 15 + "px";
           })
           $(this).addClass("open");
-          $(this).css("height", clTitle + clContent + "px");
+          $(this).find(".collapse-content").slideDown();
         }
       })
     })    

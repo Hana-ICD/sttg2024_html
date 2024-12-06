@@ -2351,7 +2351,8 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
 }
 @media screen and (max-width: 576px) {
   .group-parner .row .item {
-    flex: 0 100%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 .group-parner .row:hover .item {
@@ -2866,19 +2867,12 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
 .collapse-items > *:not(:last-child) .item {
   border-bottom: 1px solid;
 }
-.collapse-items > *:not(:first-child) .collapse-title {
-  margin-top: 1.5rem;
-}
 .collapse-items .item {
   height: 100%;
 }
 .collapse-item {
   cursor: pointer;
   transition: all 0.3s linear;
-}
-.collapse-item.open .collapse-content {
-  opacity: 1;
-  visibility: visible;
 }
 .collapse-item.open .collapse-ico::after {
   content: none;
@@ -2889,7 +2883,9 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding-right: 10px;
+  padding-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .collapse-ico {
   display: inline-block;
@@ -2898,9 +2894,8 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
   content: "";
   font-size: 20px;
   position: absolute;
-  top: 50%;
+  top: 13px;
   right: 0;
-  transform: translateY(-50%);
   width: 9px;
   height: 1px;
   background: #1d1d1d;
@@ -2909,9 +2904,8 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
   content: "";
   font-size: 20px;
   position: absolute;
-  top: 50%;
+  top: 9px;
   right: 4px;
-  transform: translateY(-50%);
   height: 10px;
   width: 1px;
   background: #1d1d1d;
@@ -2919,18 +2913,13 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
 .collapse-content {
   padding-left: 0;
   list-style: none;
-  opacity: 0;
-  visibility: hidden;
-  padding-top: 1rem;
   padding-bottom: 1.5rem;
-  transition: all 0.3s linear;
   color: #7b7a7a;
   padding-right: 10px;
 }
 @media screen and (min-width: 992px) {
   .collapse-content {
-    padding-top: 2rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1rem;
   }
 }
 .collapse-content > *:not(:last-child) {
