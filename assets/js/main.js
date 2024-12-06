@@ -134,6 +134,8 @@ function funMenuToggle() {
   let jsToggle = $(".toggle")
   window.addEventListener('click', function(e){  
     if (document.querySelector('.toggle') === e.target) {
+      console.log(e.target, 'e.target');
+      
       jsToggle.toggleClass("is-open");
       $("body").toggleClass("overflow-hidden is-open-menu");
       $(".menu-sp-wrapper").toggleClass("is-open");
@@ -147,9 +149,10 @@ function funMenuToggle() {
         }      
       }
     }
-  });      
+  });
 }
 funMenuToggle();
+
 
 if($(window).width() > 1199) {
   scrollPageProgress();
@@ -284,3 +287,69 @@ function funGetParamUrl() {
   }
 }
 funGetParamUrl();
+
+// 
+// eq: set from 0, get li frist child
+// children: get li child of ul => use .next() or .prev()
+// use .toLowerCase to custom , .toUpp..vv..
+(function() {
+  // $('.group-test ul').children('li').eq(0).text('added more text');
+  // $('.group-test ul').children('li').eq(0).next().text('added more text');
+  $('.group-test ul')
+    .children('li')
+      .eq(3)
+      .prev().text('added more text');    
+})();
+
+$(document).ready(function(){
+  console.log($('.group-test li[data-file="file1"]').text());
+  console.log($('.group-test li').attr('data-file')); // not work
+
+  $('.group-test').css({"padding-left": "2rem"}, {"padding-bottom":"2rem"})
+
+  $('.group-test li[data-file="file1"]').on("click", function(){
+    console.log($(this).attr('data-file')); // worked, when has action
+    console.log($(this).data('file')); // worked, when has action
+    $(this)
+      .siblings('li')
+        .removeAttr('data-file')
+        .end() // end above
+        .attr('data-file', 'file-kim') // replace content => that right when .end() above
+      .attr('data-file', 'file-kim') // replace content => use phan cap binh thuong
+      .clone().appendTo('.group-test'); // copy html this and insert class .group-test
+  })
+
+  $('.group-test ul').children('li').filter(':nth-child(n+3)').addClass("kim");
+
+  // creating and appending content
+  $('.ul-list').append('Append text after'); // add after
+  $('.ul-list').prepend('Append text before'); // add before
+  $('.ul-list li').first().after('<li>After li:first</li>'); // add after
+  $('.ul-list li').eq(1).before('Before li:first'); // .before() not work
+
+  $('<h2>H2 added</h2>').prependTo('.group-test');
+  $('<h3>H3 added</h3>').appendTo('.group-test');
+
+  $('<h3></h3>', {
+    text: 'H3 added - Hello',
+    class: 'h3-added-class'
+  }).appendTo('.group-test');
+  // $('<h4></h4>', {
+  //   text: 'H4 added after h3 - Hello',
+  //   class: 'h4-added-class'
+  // }).insertAfter('h3');
+  $('<h4></h4>', {
+    text: 'H4 added before h3 latest - Hello',
+    class: 'h4-added-class'
+  }).insertBefore('.group-test h3:last-child');
+
+  // $('.group-test p').eq(1).appendTo('.group-test')
+  // $('.group-test p').eq(1).after($('.group-test h2'))
+
+  $('.group-test ul li.co').each(function(){
+    $('<span></span>', {
+      class:'class-span',
+      text: 'span - ' + $(this).text()
+    }).prependTo($(this).closest('.group-test li'))
+  })
+})
