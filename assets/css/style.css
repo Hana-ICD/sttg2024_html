@@ -2438,6 +2438,7 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
     display: block;
     width: 100% !important;
     margin-bottom: 2rem;
+    max-width: 450px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -2693,12 +2694,15 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
 .group-member .item {
   position: relative;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 @media screen and (min-width: 992px) {
   .group-member .item {
     margin-top: calc(var(--margin-item) * 20px);
     margin-bottom: 0;
+    padding: 0;
   }
 }
 .group-member .item img.is-hover {
