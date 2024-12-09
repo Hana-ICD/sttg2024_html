@@ -225,8 +225,8 @@ a {
 
 .container {
   max-width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media screen and (min-width: 768px) {
   .container {
@@ -2390,6 +2390,7 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
   .group-about .about-images .image-left {
     transform: translateZ(0) !important;
     opacity: 1 !important;
+    padding-right: 10px;
   }
 }
 .group-about .about-images .image-right {
@@ -2409,6 +2410,7 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
   .group-about .about-images .image-right {
     transform: translateZ(0) !important;
     opacity: 1 !important;
+    padding-left: 10px;
   }
 }
 .group-about .about-images .images-center {
@@ -2422,13 +2424,17 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
 }
 @media only screen and (max-width: 991px) {
   .group-about .about-images .images-center img {
-    width: 360px;
+    max-width: 450px;
   }
 }
 @media only screen and (max-width: 767px) {
   .group-about .about-images .images-center {
     transform: translateZ(0) !important;
     opacity: 1 !important;
+    margin-bottom: 3rem;
+  }
+  .group-about .about-images .images-center img {
+    max-width: 80%;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -2437,8 +2443,7 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
     margin-right: auto;
     display: block;
     width: 100% !important;
-    margin-bottom: 2rem;
-    max-width: 450px;
+    margin-bottom: 1.5rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -2556,8 +2561,8 @@ body.is-open-menu .main-content, body.is-open-menu .l-header .nav-head {
   }
 }
 .block-stack .about-info {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media screen and (min-width: 768px) {
   .block-stack .about-info {
