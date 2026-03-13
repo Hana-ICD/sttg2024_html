@@ -1,2 +1,2 @@
-main: primary branch
-develop: sub - develop branch
+### main: primary branch
+#### develop: develop branch
